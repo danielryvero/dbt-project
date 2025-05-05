@@ -1,6 +1,11 @@
-with customers as (
-SELECT * 
-FROM ANALYTICS.DBT_DRJIMENEZ.CUSTOMER_SAMPLE)
+{{ config(materialized='table') }}
 
-select * 
-from customers;
+with customers as (
+
+    select *
+    from ANALYTICS.DBT_DRJIMENEZ.CUSTOMER_SAMPLE
+
+)
+
+select *
+from customers

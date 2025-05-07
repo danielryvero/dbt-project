@@ -2,17 +2,21 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: a clone of a Snowflake sample database
     database: analytics
     schema: dbt_drjimenez
     tables: 
       - name: customers
+        description: raw customers data
         columns:
           - name: c_custkey
+            description: primary key for customers data
             data_tests:
               - unique
               - not_null
         freshness: null
       - name: orders
+        description: raw orders data
         columns:
           - name: O_ORDERKEY
             data_tests:

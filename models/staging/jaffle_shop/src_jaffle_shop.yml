@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: analytics
+    schema: dbt_drjimenez
+    tables: 
+      - name: customers
+        columns:
+          - name: c_custkey
+            data_tests:
+              - unique
+              - not_null
+        freshness: null
+      - name: orders
+        columns:
+          - name: O_ORDERKEY
+            data_tests:
+              - unique
+              - not_null
+        freshness: null

@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: stg_stripe__payments
+    description: Staged payments data from our jaffle shop app.
+    columns:
+      - name: order_id
+        description: referemces order_id in stg_jaffle_shop__orders
+      - name: amount
+        description: indicates amount of money

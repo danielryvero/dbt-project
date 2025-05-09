@@ -1,6 +1,20 @@
-select 
-    c_custkey as customer_id,
-    c_name as first_name,
-    c_address as address,
-    c_phone as phone
-from {{ source('jaffle_shop', 'customers') }}
+with
+
+source as (
+    select *
+    from {{ source('jaffle_shop', 'customers') }}
+),
+
+customers as ( 
+    select 
+
+    id as customer_id,
+    last_name as surname,
+    first_name as givenname,
+    first_name || ' ' || last_name as full_name
+
+from source
+)
+
+select *
+from customers

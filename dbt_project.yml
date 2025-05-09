@@ -15,7 +15,7 @@ profile: 'default'
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["seeds"]
+seed-paths: ["seeds", "jaffle-data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -40,4 +40,4 @@ models:
     marts:
       materialized: table
     staging:
-      materialized: table
+      materialized: view

@@ -3,13 +3,13 @@ version: 2
 sources:
   - name: jaffle_shop
     description: a clone of a Snowflake sample database
-    database: analytics
-    schema: dbt_drjimenez
+    database: raw
+    schema: jaffle_shop
     tables: 
       - name: customers
         description: raw customers data
         columns:
-          - name: c_custkey
+          - name: id
             description: primary key for customers data
             data_tests:
               - unique
@@ -18,7 +18,7 @@ sources:
       - name: orders
         description: raw orders data
         columns:
-          - name: O_ORDERKEY
+          - name: id
             data_tests:
               - unique
               - not_null

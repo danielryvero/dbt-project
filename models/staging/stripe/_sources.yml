@@ -2,8 +2,7 @@ version: 2
 
 sources:
   - name: stripe
-    database: analytics
-    schema: dbt_drjimenez
+    database: raw
     tables:
-      - name: payments
+      - name: payment
         freshness: null

@@ -7,7 +7,7 @@ customers as (
 
 orders as (
     select *
-    from {{ ref('int_orders') }}
+    from {{ ref('int_order') }}
 ),
 
 ----

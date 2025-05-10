@@ -13,7 +13,7 @@ orders as (
 payments as ( 
 
     select *
-    from {{ ref('fct_orders') }}
+    from {{ ref('stg_stripe__payments') }}
 
 ),
 
@@ -21,7 +21,7 @@ order_payments as (
 
     select 
         order_id,
-        sum(amount) as amount
+        sum(payment_amount) as amount
     from payments
     group by 1
 ),

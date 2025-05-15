@@ -15,7 +15,7 @@ profile: 'default'
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["seeds", "jaffle-data"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -41,3 +41,5 @@ models:
       materialized: table
     staging:
       materialized: view
+  snowflake_spend:
+    +enabled: true

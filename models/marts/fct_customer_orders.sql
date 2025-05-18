@@ -1,3 +1,11 @@
+{{
+    config(
+        materialized='incremental',
+        unique_key='order_id',
+        incremental_strategy='merge'
+    )
+}}
+
 with
 
     customers as (
@@ -8,11 +16,17 @@ with
         select * from {{ ref('int_orders') }}
    ),
 
+   employees as (
+    select * from {{ ref('employees') }}
+   ),
+
     final as (
         select
 
             paid_orders.order_id,
             paid_orders.customer_id,
+            employees.email,
+            employees.employee_id,
             paid_orders.order_placed_at,
             paid_orders.order_status,
             paid_orders.total_amount_paid,
@@ -52,7 +66,12 @@ with
         from paid_orders
         left join customers
             on customers.customer_id = paid_orders.customer_id
+        left join employees 
+            on customers.customer_id = employees.customer_id
     )
 
-select *
-from final
+select * from final
+{% if is_incremental() %}
+    -- this filter will only be applied on an incremental run
+    where order_placed_at >= (select max(order_placed_at) from {{ this }}) 
+{% endif %}

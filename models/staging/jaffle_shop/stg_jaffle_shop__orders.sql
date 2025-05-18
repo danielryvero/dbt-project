@@ -23,5 +23,3 @@ from source
 
 select *
 from transformed
-
-{{ limit_data_in_dev('order_date', 100) }}

@@ -1,0 +1,35 @@
+models:
+  - name: int_orders
+    access: public
+    group: finance
+    latest_version: 1
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: order_id
+        data_type: number
+        constraints:
+          - type: not_null
+      - name: customer_id
+        data_type: number
+      - name: order_placed_at
+        data_type: date
+      - name: order_status
+        data_type: varchar
+      - name: total_amount_paid
+        data_type: number
+      - name: payment_finalized_date
+        data_type: date
+    versions:
+      - v: 1
+        config:
+          alias: int_orders
+      - v: 2
+        columns:
+          - name: order_amount
+            data_type: number
+          - name: latest_order_placed
+            data_type: date
+          - include: all
+            exclude: [total_amount_paid]

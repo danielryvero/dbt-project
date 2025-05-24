@@ -36,10 +36,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
+ #+required_tests: {"unique.*|not_null":2}
   jaffle_shop:
     marts:
+      #+required_tests: {"relationship.*:1"}
       materialized: table
     staging:
       materialized: view
-  snowflake_spend:
-    +enabled: true

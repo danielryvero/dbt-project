@@ -37,3 +37,4 @@ order_values_joined as (
 
 select *
 from order_values_joined
+--comment just to test slim CI

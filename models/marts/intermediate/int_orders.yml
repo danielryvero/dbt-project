@@ -11,12 +11,24 @@ models:
         data_type: number
         constraints:
           - type: not_null
+        tests:
+          - unique:
+              config:
+                severity: warn
+                error_if: ">100"
+                warn_if: ">10"
+                store_failures: true
       - name: customer_id
         data_type: number
       - name: order_placed_at
         data_type: date
       - name: order_status
         data_type: varchar
+        tests:
+          - not_null:
+              config:
+                limit: 10
+                store_failures: true
       - name: total_amount_paid
         data_type: number
       - name: payment_finalized_date

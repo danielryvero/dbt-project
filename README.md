@@ -4,6 +4,7 @@ I completed the full dbt Developer Path curriculum, applying best practices in d
 I hope you can use this project to correct and guide yourself through the process of completing it. Some things are done my way and I encourage you to do it your way too!.
 
 ** Highlights **
+
 🏗️ **Source Configuration**
 
 * Defined sources using the sources: config in .yml files.

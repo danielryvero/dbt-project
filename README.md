@@ -3,7 +3,7 @@
 I completed the full dbt Developer Path curriculum, applying best practices in data modeling, testing, documentation, and deployment using dbt Cloud. 
 I hope you can use this project to correct and guide yourself through the process of completing it. Some things are done my way and I encourage you to do it your way too!.
 
-** Highlights **
+**Highlights**
 
 🏗️ **Source Configuration**
 

@@ -84,3 +84,17 @@ grant all on all tables in database production to role transformer;
 grant all on future tables in database raw to role transformer;
 grant all on future tables in database analytics to role transformer;
 grant all on future tables in database production to role transformer;
+
+--setup an rsa key in your computuer by:
+
+-- 1. Generating the encrypted private key (PKCS#8)
+--  openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out rsa_key.p8
+-- 2. Generating the matching public key from the private key
+--  openssl rsa -in rsa_key.p8 -pubout -out rsa_key.pub
+
+--then open the rsa_key.pub file and copy the whole key.
+--paste it in the connection setup in dbt Cloud by selecting "Auth method: key pair"
+--and also paste it in this Snowflake command, to allow communication between dbt and Snowflake:
+alter user danielryvero set rsa_public_key = '-----BEGIN PUBLIC KEY-----
+MIIBI.......
+-----END PUBLIC KEY-----';

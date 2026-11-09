@@ -5,4 +5,5 @@ sources:
     database: raw
     tables:
       - name: payment
-        freshness: null
+        config:
+          freshness: null

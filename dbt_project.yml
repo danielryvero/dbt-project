@@ -40,6 +40,8 @@ models:
   jaffle_shop:
     marts:
       #+required_tests: {"relationship.*:1"}
-      materialized: table
+      +meta:
+        materialized: table
     staging:
-      materialized: view
+      +meta:
+        materialized: view

@@ -13,11 +13,13 @@ sources:
             description: primary key for customers data
             data_tests:
               - not_null
-        freshness: null
+        config:
+          freshness: null
       - name: orders
         description: raw orders data
         columns:
           - name: id
             data_tests:
               - not_null
-        freshness: null
+        config:
+          freshness: null
